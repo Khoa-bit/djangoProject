@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.db.utils import IntegrityError
 
 from AppTwo.management.ModelsFactory import UserFactory
 
@@ -19,5 +20,11 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        for _ in range(options['users']):
-            UserFactory()
+        count = options['users']
+        while count:
+            try:
+                UserFactory()
+            except IntegrityError:
+                continue
+            else:
+                count -= 1
