@@ -5,7 +5,7 @@ from AppTwo.management.ModelsFactory import UserFactory
 
 
 class Command(BaseCommand):
-    help = 'Seed the database with fake users.'
+    help = 'Seeds the database with fake users.'
 
     def add_arguments(self, parser):
         # Positional arguments (disabled)
