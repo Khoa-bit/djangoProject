@@ -27,7 +27,7 @@ def get_user_sign_up(request):
             print(first_name)
             print(last_name)
             print(email)
-            UserFactory(first_name=first_name, last_name=last_name, email=email)
+            form.save()
             return HttpResponseRedirect('')
 
     else:
