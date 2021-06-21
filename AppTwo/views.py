@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.db import IntegrityError
+from django.core.exceptions import FieldError
 
 from AppTwo.forms import UserSignUpForm
-from AppTwo.models import User
+from AppTwo.management.ModelsFactory import UserFactory
 
 
 # Create your views here.
@@ -19,9 +21,13 @@ def get_user_sign_up(request):
         form = UserSignUpForm(request.POST)
 
         if form.is_valid():
-            print(form.cleaned_data['first_name'])
-            print(form.cleaned_data['last_name'])
-            print(form.cleaned_data['email'])
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            print(first_name)
+            print(last_name)
+            print(email)
+            UserFactory(first_name=first_name, last_name=last_name, email=email)
             return HttpResponseRedirect('')
 
     else:
