@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-vua*!^-b5v-i_^8citdirr&#5b)u7bins+wrf6h0af62fv+0r6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['khoabit.pythonanywhere.com']
+ALLOWED_HOSTS = ['khoabit.pythonanywhere.com', '127.0.0.1']
 
 # Application definition
 

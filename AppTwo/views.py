@@ -16,6 +16,10 @@ def user_help(request):
     return render(request, 'AppTwo/help.html', {'page_title': 'Help Page'})
 
 
+def tea_website(request):
+    return render(request, 'AppTwo/Website.html', {})
+
+
 def get_user_sign_up(request):
     if request.method == 'POST':
         form = UserSignUpForm(request.POST)
